@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     background: rgba(0, 0, 0, 0.8);
     margin: 0;
@@ -7,6 +7,7 @@ body {
 
 
 .showcase::after{
+    content: '';
     height: 100vh;
     width: 100%;
     background-image: url(/img/main.jpg);
@@ -16,30 +17,34 @@ body {
     /* background: black; */
     
     /* for blur effect */
-    content: '';
-    filter: blur(10px);
-    -webkit-filter: blur(10px);
+    filter: blur(0px);
     display: block;
+    -webkit-filter: blur(0px);
     transition: all 1000ms;
 }
 
 .showcase:hover::after{
-    filter: blur(0px);
-    -webkit-filter: blur(0px);
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+}
+
+.content{
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
 }
 
 .showcase:hover .content{
-    filter: blur(3px);
-    -webkit-filter: blur(3px);
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
 }
 
 .content {
     position: absolute;
     text-align: center;
-    top: 25%;
-    left: 50%;
+    top: 15%;
+    left: 47%;
     /* for blur effect including the greetings  */
-    margin-top:100px;
+    margin-top:70px;
     margin-left: -145px;
     height: 300px;
     z-index: 1;
@@ -51,17 +56,72 @@ body {
 }
 
 .content #greet{
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
+  
+  #i1, #i2, #i3, #i4, #i5, #logo, #logo-bulls {
+	height: 78px;
+	overflow: hidden; 
+  }
+ 
+
+  #i1:hover, #i2:hover, #i3:hover, #i4:hover, #i5:hover, #logo:hover, #logo-bulls:hover {
+	transform: scale(1.3);
+	animation-name: color-change;
+    animation-duration: 5s;
+    filter: initial;
+  }
+
+  #logo {
+	/* display: inline-block; */
+	width: 56px;
+	height: 42px;
+	border-radius: 5px;
+    margin-top: 4px;
+    filter: brightness(10)
+}
+
+#logo-bulls {
+	/* display: inline-block; */
+	width: 56px;
+	height: 42px;
+	border-radius: 5px;
+    margin-top: 4px;
+    /* filter: brightness(10) */
+}
+
+.icons {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+  @keyframes color-change {
+	from {color:#596C6C;}
+	to {color:white;}
+  }
+
+  /* [2] Transition property for smooth transformation of images */
+  #i1, #i2, #i3, #i4, #i5, #logo, #logo-bulls {
+	transition: transform 1s ease;
+  }
+
+  #i5-disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+  }
+
 /* small screens */
-@media(max-width: 560px) {
+@media(max-width: 590px) {
     .showcase::after{
         height: 100vh;
     }
     .content{
         top: 20%;
-        left: 50%;
+        left: 52%;
+        filter: none;
+        margin-top: 1px;
     }
     .content #greet {
         font-size: 1.5rem;
@@ -70,14 +130,38 @@ body {
         filter: blur(0px);
         -webkit-filter: blur(0px);
     }
+
+    #i1, #i2, #i3, #i4, #i5, #logo {
+        height: 48px;
+        overflow: hidden; 
+      }
+
+      #logo {
+        /* display: inline-block; */
+        width: 32px;
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 4px;
+    }
+
+    #logo-bulls {
+        /* display: inline-block; */
+        width: 32px;
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 4px;
+        
+    }
+
 }
 
 /* landscape */
 @media(max-height: 520px) {
     .content{
-        top: .5%;
+        top: 10%;
         left: 50%;
         filter: none;
+        margin-top: 10px;
     }
     .content #greet {
         font-size: 1.5rem;
@@ -89,4 +173,27 @@ body {
         filter: blur(0px);
         -webkit-filter: blur(0px);
     }
+    #i1, #i2, #i3, #i4, #i5, #logo {
+        height: 48px;
+        overflow: hidden; 
+      }
+    #logo {
+        /* display: inline-block; */
+        width: 32px;
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 4px;
+    }
+
+    #logo-bulls {
+        /* display: inline-block; */
+        width: 32px;
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 4px;
+        
+    }
+   
 }
+
+
