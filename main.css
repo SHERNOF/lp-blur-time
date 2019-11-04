@@ -1,51 +1,92 @@
-
- *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    
-}
-
-body{
-    background: rgba(0,0,0,0.9);
-    margin: 0;
-    color: #ffffff;
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-    
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 0;
 }
 
-.showcase{
-    content: '';
+
+.showcase::after{
     height: 100vh;
     width: 100%;
-    /* background-image: url(/img/main.jpg); */
+    background-image: url(/img/main.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    display: block;
+    /* background: black; */
     
-}
-
-.content{
-    position: absolute;
-    z-index: 1;
-    top: 15%;
-    left: 45%;
-    /* margin-top: 150px; */
-    margin-left: -145px;
-    height: 350px;
-    text-align: center;
+    /* for blur effect */
+    content: '';
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    display: block;
     transition: all 1000ms;
 }
 
-.content #time {
-    font-size: 3.2rem;
-    margin-top: 5rem;
+.showcase:hover::after{
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
 }
 
-.content .greet {
-    font-size: 1.2rem;
-    
+.showcase:hover .content{
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
 }
 
+.content {
+    position: absolute;
+    text-align: center;
+    top: 25%;
+    left: 50%;
+    /* for blur effect including the greetings  */
+    margin-top:100px;
+    margin-left: -145px;
+    height: 300px;
+    z-index: 1;
+    transition: all 1000ms;
+}
+
+.content #time{
+    font-size: 2.5rem;
+}
+
+.content #greet{
+    font-size: 2rem;
+}
+
+/* small screens */
+@media(max-width: 560px) {
+    .showcase::after{
+        height: 100vh;
+    }
+    .content{
+        top: 20%;
+        left: 50%;
+    }
+    .content #greet {
+        font-size: 1.5rem;
+    }
+    .showcase:hover .content{
+        filter: blur(0px);
+        -webkit-filter: blur(0px);
+    }
+}
+
+/* landscape */
+@media(max-height: 520px) {
+    .content{
+        top: .5%;
+        left: 50%;
+        filter: none;
+    }
+    .content #greet {
+        font-size: 1.5rem;
+    }
+    .content #time {
+        font-size: 1.5rem;
+    }
+    .showcase:hover .content{
+        filter: blur(0px);
+        -webkit-filter: blur(0px);
+    }
+}
